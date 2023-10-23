@@ -1,5 +1,4 @@
-﻿
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
@@ -28,13 +27,13 @@ public class OnButtonSyncAnyone : UdonSharpBehaviour
 
     public void UpdateClickCount()
     {
-        if (Networking.IsOwner(this.gameObject))
-        {
+         if (Networking.IsOwner(this.gameObject))
+         {
             ClickCount++;
-        }
-        else
-        {
-            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner,nameof(UpdateClickCount));
-        }
+         }
+         else
+         {
+             SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner,nameof(UpdateClickCount));
+         }
     }
 }

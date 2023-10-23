@@ -31,6 +31,7 @@ public class ButtonSyncBecomeOwner : UdonSharpBehaviour
         if (Networking.IsOwner(this.gameObject))
         {
             ClickCount++;
+            RequestSerialization();
         }
         else
         {
