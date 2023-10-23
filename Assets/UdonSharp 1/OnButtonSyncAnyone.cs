@@ -28,6 +28,13 @@ public class OnButtonSyncAnyone : UdonSharpBehaviour
 
     public void UpdateClickCount()
     {
-        ClickCount++;
+        if (Networking.IsOwner(this.gameObject))
+        {
+            ClickCount++;
+        }
+        else
+        {
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner,nameof(UpdateClickCount));
+        }
     }
 }
